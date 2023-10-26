@@ -1,5 +1,13 @@
 # CMPE343_Project_1
 
+## Table of Content
+
+[Matrix Operations](#matrix-operations)
+[Important Dates](#important-dates-for-the-first-project-are)
+[To Do List](#to-do)
+[Implementation Notes](#implementation-notes)
+
+
 ## Matrix Operations
 
 In the First Project of the CMPE343 course, you will develop a console application with Java and build a UML Activity Diagram for your app. Your application must perform Matrix Operations per the user's choice and the data entered. Each student will upload the Deliverables via [Learn](learn.khas.edu.tr) and join the presentations. Scenario-Objectives, Implementation Notes, Deliverables, Grading Formula, and Presentation details are in the
