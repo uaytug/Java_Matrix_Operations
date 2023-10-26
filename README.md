@@ -21,7 +21,7 @@ following headers.
 
 ## To Do
 
-- [ ] Terminal Menu -> Aytuğ
+- [x] Terminal Menu -> Aytuğ
 - [ ] [Matrix addition](https://www.javatpoint.com/java-program-to-add-two-matrices) -> Aytuğ
 - [ ] [Matrix subtraction](https://www.javatpoint.com/java-program-to-subtract-the-two-matrices) -> Aytuğ
 - [ ] [Matrix multiplication](https://www.javatpoint.com/java-program-to-multiply-two-matrices) -> Aytuğ
@@ -31,7 +31,7 @@ following headers.
 - [ ] [The inverse of the matrix](https://www.geeksforgeeks.org/adjoint-inverse-matrix/) -> Emircan
 - [ ] [Trace of the matrix](https://www.javatpoint.com/normal-and-trace-of-a-matrix-in-java) -> Emircan
 - [ ] [Adjoint of the matrix](https://www.geeksforgeeks.org/adjoint-inverse-matrix/) -> Göktuğ
-- [ ] [Check the matrix for Orthogonality](https://www.geeksforgeeks.org/check-whether-given-matrix-orthogonal-not/) -> Başar
+- [x] [Check the matrix for Orthogonality](https://www.geeksforgeeks.org/check-whether-given-matrix-orthogonal-not/) -> Başar
 
 ## Implementation Notes
 
