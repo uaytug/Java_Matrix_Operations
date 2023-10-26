@@ -7,7 +7,6 @@
 [To Do List](#to-do)
 [Implementation Notes](#implementation-notes)
 
-
 ## Matrix Operations
 
 In the First Project of the CMPE343 course, you will develop a console application with Java and build a UML Activity Diagram for your app. Your application must perform Matrix Operations per the user's choice and the data entered. Each student will upload the Deliverables via [Learn](learn.khas.edu.tr) and join the presentations. Scenario-Objectives, Implementation Notes, Deliverables, Grading Formula, and Presentation details are in the
@@ -22,17 +21,17 @@ following headers.
 
 ## To Do
 
-- [ ] Terminal Menu
-- [ ] [Matrix addition](https://www.javatpoint.com/java-program-to-add-two-matrices)
-- [ ] [Matrix subtraction](https://www.javatpoint.com/java-program-to-subtract-the-two-matrices)
-- [ ] [Matrix multiplication](https://www.javatpoint.com/java-program-to-multiply-two-matrices)
-- [ ] [Matrix division](https://www.roseindia.net/java/java-conversion/Dividing-of-two-Matri-in-Java.shtml)
-- [ ] [Scalar multiplication of the matrix](https://www.tutorialgateway.org/java-scalar-matrix-multiplication-program/)
-- [ ] [Transpose of the matrix](https://www.javatpoint.com/java-program-to-transpose-matrix)
-- [ ] [The inverse of the matrix](https://www.geeksforgeeks.org/adjoint-inverse-matrix/)
-- [ ] [Trace of the matrix](https://www.javatpoint.com/normal-and-trace-of-a-matrix-in-java)
-- [ ] [Adjoint of the matrix](https://www.geeksforgeeks.org/adjoint-inverse-matrix/)
-- [ ] [Check the matrix for Orthogonality](https://www.geeksforgeeks.org/check-whether-given-matrix-orthogonal-not/)
+- [ ] Terminal Menu -> Aytuğ
+- [ ] [Matrix addition](https://www.javatpoint.com/java-program-to-add-two-matrices) -> Aytuğ
+- [ ] [Matrix subtraction](https://www.javatpoint.com/java-program-to-subtract-the-two-matrices) -> Aytuğ
+- [ ] [Matrix multiplication](https://www.javatpoint.com/java-program-to-multiply-two-matrices) -> Aytuğ
+- [ ] [Matrix division](https://www.roseindia.net/java/java-conversion/Dividing-of-two-Matri-in-Java.shtml) -> Aytuğ
+- [ ] [Scalar multiplication of the matrix](https://www.tutorialgateway.org/java-scalar-matrix-multiplication-program/) -> Başar
+- [ ] [Transpose of the matrix](https://www.javatpoint.com/java-program-to-transpose-matrix) -> Göktuğ
+- [ ] [The inverse of the matrix](https://www.geeksforgeeks.org/adjoint-inverse-matrix/) -> Emircan
+- [ ] [Trace of the matrix](https://www.javatpoint.com/normal-and-trace-of-a-matrix-in-java) -> Emircan
+- [ ] [Adjoint of the matrix](https://www.geeksforgeeks.org/adjoint-inverse-matrix/) -> Göktuğ
+- [ ] [Check the matrix for Orthogonality](https://www.geeksforgeeks.org/check-whether-given-matrix-orthogonal-not/) -> Başar
 
 ## Implementation Notes
 
