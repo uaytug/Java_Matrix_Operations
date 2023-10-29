@@ -21,11 +21,11 @@ following headers.
 
 ## To Do
 
-- [x] Terminal Menu -> Aytuğ
-- [ ] [Matrix addition](https://www.javatpoint.com/java-program-to-add-two-matrices) -> Aytuğ
-- [ ] [Matrix subtraction](https://www.javatpoint.com/java-program-to-subtract-the-two-matrices) -> Aytuğ
-- [ ] [Matrix multiplication](https://www.javatpoint.com/java-program-to-multiply-two-matrices) -> Aytuğ
-- [ ] [Matrix division](https://www.roseindia.net/java/java-conversion/Dividing-of-two-Matri-in-Java.shtml) -> Aytuğ
+- [ ] Terminal Menu -> Aytuğ --> Partialy done. Improvments will made in future
+- [x] [Matrix addition](https://www.javatpoint.com/java-program-to-add-two-matrices) -> Aytuğ
+- [x] [Matrix subtraction](https://www.javatpoint.com/java-program-to-subtract-the-two-matrices) -> Aytuğ
+- [x] [Matrix multiplication](https://www.javatpoint.com/java-program-to-multiply-two-matrices) -> Aytuğ
+- [x] [Matrix division](https://www.roseindia.net/java/java-conversion/Dividing-of-two-Matri-in-Java.shtml) -> Aytuğ
 - [ ] [Scalar multiplication of the matrix](https://www.tutorialgateway.org/java-scalar-matrix-multiplication-program/) -> Başar
 - [ ] [Transpose of the matrix](https://www.javatpoint.com/java-program-to-transpose-matrix) -> Göktuğ
 - [ ] [The inverse of the matrix](https://www.geeksforgeeks.org/adjoint-inverse-matrix/) -> Emircan

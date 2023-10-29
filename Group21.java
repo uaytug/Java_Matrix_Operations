@@ -89,20 +89,16 @@ public class Group21 {
             int choice = input.nextInt();
             switch (choice) {
                 case 1:
-                    // code for addition
-                    returnMenu();
+                    addition();
                     break;
                 case 2:
-                    // code for subtraction
-                    returnMenu();
+                    subtraction();
                     break;
                 case 3:
-                    // code for multiplication
-                    returnMenu();
+                    multiplication();
                     break;
                 case 4:
-                    // code for division
-                    returnMenu();
+                    division();
                     break;
                 case 5:
                     // code for scalar multiplication
@@ -155,16 +151,144 @@ public class Group21 {
         }
     }
     public static void addition(){
-
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the number of rows of the matrices: ");
+        int rows = input.nextInt();
+        System.out.print("Enter the number of columns of the matrices: ");
+        int columns = input.nextInt();
+        int[][] matrix1 = new int[rows][columns];
+        int[][] matrix2 = new int[rows][columns];
+        int[][] resultMatrix = new int[rows][columns];
+        System.out.println("Enter the elements of the first matrix: ");
+        for(int i=0; i<rows; i++){
+            for(int j=0; j<columns; j++){
+                matrix1[i][j] = input.nextInt();
+            }
+        }
+        System.out.println("Enter the elements of the second matrix: ");
+        for(int i=0; i<rows; i++){
+            for(int j=0; j<columns; j++){
+                matrix2[i][j] = input.nextInt();
+            }
+        }
+        for(int i=0; i<rows; i++){
+            for(int j=0; j<columns; j++){
+                resultMatrix[i][j] = matrix1[i][j] + matrix2[i][j];
+            }
+        }
+        System.out.println("The result of the addition is: ");
+        for(int i=0; i<rows; i++){
+            for(int j=0; j<columns; j++){
+                System.out.print(resultMatrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+        returnMenu();
     }
     public static void subtraction(){
-
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the number of rows of the matrices: ");
+        int rows = input.nextInt();
+        System.out.print("Enter the number of columns of the matrices: ");
+        int columns = input.nextInt();
+        int[][] matrix1 = new int[rows][columns];
+        int[][] matrix2 = new int[rows][columns];
+        int[][] resultMatrix = new int[rows][columns];
+        System.out.println("Enter the elements of the first matrix: ");
+        for(int i=0; i<rows; i++){
+            for(int j=0; j<columns; j++){
+                matrix1[i][j] = input.nextInt();
+            }
+        }
+        System.out.println("Enter the elements of the second matrix: ");
+        for(int i=0; i<rows; i++){
+            for(int j=0; j<columns; j++){
+                matrix2[i][j] = input.nextInt();
+            }
+        }
+        for(int i=0; i<rows; i++){
+            for(int j=0; j<columns; j++){
+                resultMatrix[i][j] = matrix1[i][j] - matrix2[i][j];
+            }
+        }
+        System.out.println("The result of the subtraction is: ");
+        for(int i=0; i<rows; i++){
+            for(int j=0; j<columns; j++){
+                System.out.print(resultMatrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+        returnMenu();
     }
     public static void multiplication(){
-
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the number of rows of the matrices: ");
+        int rows = input.nextInt();
+        System.out.print("Enter the number of columns of the matrices: ");
+        int columns = input.nextInt();
+        int[][] matrix1 = new int[rows][columns];
+        int[][] matrix2 = new int[rows][columns];
+        int[][] resultMatrix = new int[rows][columns];
+        System.out.println("Enter the elements of the first matrix: ");
+        for(int i=0; i<rows; i++){
+            for(int j=0; j<columns; j++){
+                matrix1[i][j] = input.nextInt();
+            }
+        }
+        System.out.println("Enter the elements of the second matrix: ");
+        for(int i=0; i<rows; i++){
+            for(int j=0; j<columns; j++){
+                matrix2[i][j] = input.nextInt();
+            }
+        }
+        for(int i=0; i<rows; i++){
+            for(int j=0; j<columns; j++){
+                resultMatrix[i][j] = matrix1[i][j] * matrix2[i][j];
+            }
+        }
+        System.out.println("The result of the multiplication is: ");
+        for(int i=0; i<rows; i++){
+            for(int j=0; j<columns; j++){
+                System.out.print(resultMatrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+        returnMenu();
     }
     public static void division(){
-
+            Scanner input = new Scanner(System.in);
+            System.out.print("Enter the number of rows of the matrices: ");
+            int rows = input.nextInt();
+            System.out.print("Enter the number of columns of the matrices: ");
+            int columns = input.nextInt();
+            double[][] matrix1 = new double[rows][columns];
+            double[][] matrix2 = new double[rows][columns];
+            double[][] resultMatrix = new double[rows][columns];
+            System.out.println("Enter the elements of the first matrix: ");
+            for(int i=0; i<rows; i++){
+                for(int j=0; j<columns; j++){
+                    matrix1[i][j] = input.nextInt();
+                }
+            }
+            System.out.println("Enter the elements of the second matrix: ");
+            for(int i=0; i<rows; i++){
+                for(int j=0; j<columns; j++){
+                    matrix2[i][j] = input.nextInt();
+                }
+            }
+            for(int i=0; i<rows; i++){
+                for(int j=0; j<columns; j++){
+                    resultMatrix[i][j] = matrix1[i][j] / matrix2[i][j];
+                }
+            }
+            System.out.println("The result of the division is: ");
+            for(int i=0; i<rows; i++){
+                for(int j=0; j<columns; j++){
+                    System.out.print(resultMatrix[i][j] + " ");
+                }
+                System.out.println();
+            }
+            returnMenu();
     }
     public static void scalarMultiplication(){
 
