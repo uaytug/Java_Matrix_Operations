@@ -89,42 +89,53 @@ public class Group21 {
             int choice = input.nextInt();
             switch (choice) {
                 case 1:
+                    clearTerminal();
                     addition();
                     break;
                 case 2:
+                    clearTerminal();
                     subtraction();
                     break;
                 case 3:
+                    clearTerminal();
                     multiplication();
                     break;
                 case 4:
+                    clearTerminal();
                     division();
                     break;
                 case 5:
+                    clearTerminal();             
                     // code for scalar multiplication
                     returnMenu();
                     break;
                 case 6:
+                    clearTerminal();
                     // code for transpose
                     returnMenu();
                     break;
                 case 7:
+                    clearTerminal();
                     // code for inverse
                     returnMenu();
                     break;
                 case 8:
+                    clearTerminal();
                     // code for trace
                     returnMenu();
                     break;
                 case 9:
+                    clearTerminal();
                     // code for adjoint
                     returnMenu();
                     break;
                 case 10:
+                    clearTerminal();
                     // code for orthogonal matrix
                     returnMenu();
                     break;
                 case 11:
+                    clearTerminal();
                     System.out.println("Exiting...");
                     System.exit(0);
                     break;
@@ -143,6 +154,7 @@ public class Group21 {
             int choice = input.nextInt();
             switch (choice) {
                 case 1:
+                    clearTerminal();
                     menu();
                     break;
                 case 2:
@@ -370,7 +382,8 @@ public class Group21 {
 
     }
     public static void clearTerminal(){
-
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();  
     }
     public static void main(String[] args) {
 
