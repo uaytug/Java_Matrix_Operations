@@ -379,6 +379,15 @@ public class Group21 {
                 inverseMatrix[i][j] = augmentedMatrix[i][j+n];
             }
         }
+
+        System.out.printf("You have entered the following matrix:\n");     
+        
+        for(int i=0;i<rows;i++){
+            for(int j=0;j<columns;j++){
+                System.out.printf("%.1f\t", matrix[i][j]);
+            }
+            System.out.println("\n");
+        }
         
         System.out.printf("The inverse of a matrix is:\n");
 
