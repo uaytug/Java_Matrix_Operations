@@ -339,10 +339,13 @@ public class Group21 {
         //Entering the values
         for(int i=0;i<rows;i++){
             for(int j=0;j<columns;j++){
+                System.out.printf("Row %d",i+1);
+                System.out.printf(" - Column %d :\n",j+1);
                 matrix[i][j]=input.nextDouble();
             }
             System.out.println();
         }
+        input.close();
         
         //Printing matrix
         System.out.println("You have entered the following matrix: ");
