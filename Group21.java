@@ -386,7 +386,7 @@ public class Group21 {
         System.out.flush();  
     }
     public static void main(String[] args) {
-
+        menu();
     }
     // _____________________
     // |Group 21           |
