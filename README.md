@@ -33,7 +33,7 @@ following headers.
 - [ ] [Scalar multiplication of the matrix](https://www.tutorialgateway.org/java-scalar-matrix-multiplication-program/) -> Başar
 - [ ] [Transpose of the matrix](https://www.javatpoint.com/java-program-to-transpose-matrix) -> Göktuğ
 - [ ] [The inverse of the matrix](https://www.geeksforgeeks.org/adjoint-inverse-matrix/) -> Emircan
-- [ ] [Trace of the matrix](https://www.javatpoint.com/normal-and-trace-of-a-matrix-in-java) -> Emircan
+- [x] [Trace of the matrix](https://www.javatpoint.com/normal-and-trace-of-a-matrix-in-java) -> Emircan
 - [ ] [Adjoint of the matrix](https://www.geeksforgeeks.org/adjoint-inverse-matrix/) -> Göktuğ
 - [x] [Check the matrix for Orthogonality](https://www.geeksforgeeks.org/check-whether-given-matrix-orthogonal-not/) -> Başar
 
