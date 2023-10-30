@@ -116,7 +116,7 @@ public class Group21 {
                     break;
                 case 7:
                     clearTerminal();
-                    // code for inverse
+                    inverse();
                     returnMenu();
                     break;
                 case 8:
@@ -309,9 +309,89 @@ public class Group21 {
     public static void transpose(){
 
     }
-    public static void inverse(){
 
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+
+    public static void inverse(){
+    	//In order to take inverse a matrix, it has to be square!
+        Scanner input=new Scanner(System.in);
+        int rows;
+        int columns;
+        
+        //If the rows and columns not the same, ask to the user to enter the size again.
+        do{
+            System.out.print("Enter the number of rows of the matrices: ");
+            rows = input.nextInt();
+            System.out.print("Enter the number of columns of the matrices: ");
+            columns = input.nextInt();
+
+            if(rows!=columns){
+                System.out.println("The matrix has to be square like 2x2, 3x3 etc.\n");
+            }
+        }while(rows!=columns);
+
+        System.out.printf("The size is %dx%d\n\n",rows,columns);
+        double [][]matrix=new double[rows][columns];
+        System.out.println("Please enter the values to the matrix:\n");
+
+        //Entering the values
+        for(int i=0;i<rows;i++){
+            for(int j=0;j<columns;j++){
+                System.out.printf("Row %d",i+1);
+                System.out.printf(" - Column %d :\n",j+1);
+                matrix[i][j]=input.nextDouble();
+            }
+            System.out.println();
+        }
+        input.close();
+
+        int n = matrix.length;
+        double[][] augmentedMatrix = new double[n][2*n];
+        
+        // Create an augmented matrix [matrix | I]
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                augmentedMatrix[i][j] = matrix[i][j];
+                augmentedMatrix[i][j+n] = (i == j) ? 1 : 0;
+            }
+        }
+        
+        // Apply Gauss-Jordan elimination
+        for (int i = 0; i < n; i++) {
+            double pivot = augmentedMatrix[i][i];
+            for (int j = 0; j < 2*n; j++) {
+                augmentedMatrix[i][j] /= pivot;
+            }
+            for (int k = 0; k < n; k++) {
+                if (k != i) {
+                    double factor = augmentedMatrix[k][i];
+                    for (int j = 0; j < 2*n; j++) {
+                        augmentedMatrix[k][j] -= factor * augmentedMatrix[i][j];
+                    }
+                }
+            }
+        }
+        
+        // Extract the inverse matrix
+        double[][] inverseMatrix = new double[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                inverseMatrix[i][j] = augmentedMatrix[i][j+n];
+            }
+        }
+        
+        System.out.printf("The inverse of a matrix is:\n");
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.printf("%.1f\t", inverseMatrix[i][j]);
+            }
+            System.out.println("\n");
+        }
     }
+	
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+	
     public static void trace(){
 	//The trace of a square matrix is the sum of its diagonal entries.
         Scanner input=new Scanner(System.in);
