@@ -303,12 +303,61 @@ public class Group21 {
             }
             returnMenu();
     }
+	
     public static void scalarMultiplication(){
 
     }
+	
     public static void transpose(){
 
+	Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter the number of rows of the matrices: ");
+        int rows = input.nextInt();
+        System.out.print("Enter the number of columns of the matrices: ");
+        int columns = input.nextInt();
+        System.out.println("Enter the elements of the first matrix: ");
+
+        double matrix[][] = new double[rows][columns];
+
+        for(int i = 0; i < rows; i++)
+        {
+            for(int j = 0; j < columns; j++)
+            {
+                matrix[i][j] = input.nextInt();
+            }
+        }
+
+        input.close();
+
+        double temp[][] = new double[columns][rows];
+
+        for(int i = 0; i < columns; i++)
+        {
+            for(int j = 0; j < rows; j++)
+            {
+                temp[i][j] = matrix[j][i];
+            }
+        }
+
+        printResult(matrix, rows, columns);
+        System.out.println();
+        printResult(temp, columns, rows);
     }
+
+    public static void printResult(double[][] matrix, int rows, int columns){
+	    
+        for(int i = 0; i < rows; i++)
+        {
+            for(int j = 0; j < columns; j++)
+            {
+                System.out.print(matrix[i][j] + " ");
+            }
+
+            System.out.println();
+        }
+    }
+	
 
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 
