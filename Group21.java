@@ -158,6 +158,7 @@ public class Group21 {
                     menu();
                     break;
                 case 2:
+                    clearTerminal();
                     break;
             }
         }
