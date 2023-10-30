@@ -121,7 +121,7 @@ public class Group21 {
                     break;
                 case 8:
                     clearTerminal();
-                    // code for trace
+                    trace();
                     returnMenu();
                     break;
                 case 9:
