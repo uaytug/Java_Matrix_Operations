@@ -30,7 +30,7 @@ following headers.
 - [x] [Matrix subtraction](https://www.javatpoint.com/java-program-to-subtract-the-two-matrices) -> Aytuğ
 - [x] [Matrix multiplication](https://www.javatpoint.com/java-program-to-multiply-two-matrices) -> Aytuğ
 - [x] [Matrix division](https://www.roseindia.net/java/java-conversion/Dividing-of-two-Matri-in-Java.shtml) -> Aytuğ
-- [ ] [Scalar multiplication of the matrix](https://www.tutorialgateway.org/java-scalar-matrix-multiplication-program/) -> Başar
+- [x] [Scalar multiplication of the matrix](https://www.tutorialgateway.org/java-scalar-matrix-multiplication-program/) -> Başar
 - [x] [Transpose of the matrix](https://www.javatpoint.com/java-program-to-transpose-matrix) -> Göktuğ
 - [ ] [The inverse of the matrix](https://www.geeksforgeeks.org/adjoint-inverse-matrix/) -> Emircan
 - [x] [Trace of the matrix](https://www.javatpoint.com/normal-and-trace-of-a-matrix-in-java) -> Emircan
