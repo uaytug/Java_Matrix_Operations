@@ -205,7 +205,7 @@ public class Group21 {
             return false;
         }
     }
-    
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
     public static void addition(){
         Scanner input = new Scanner(System.in);
         System.out.print("Enter the number of rows of the matrices: ");
@@ -254,6 +254,7 @@ public class Group21 {
         }
         returnMenu();
     }
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
     public static void subtraction(){
         Scanner input = new Scanner(System.in);
         System.out.print("Enter the number of rows of the matrices: ");
@@ -302,6 +303,7 @@ public class Group21 {
         }
         returnMenu();
     }
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
     public static void multiplication(){
         Scanner input = new Scanner(System.in);
         System.out.print("Enter the number of rows of the matrices: ");
@@ -348,6 +350,7 @@ public class Group21 {
         }
         returnMenu();
     }
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
     public static void division(){
             Scanner input = new Scanner(System.in);
             System.out.print("Enter the number of rows of the matrices: ");
@@ -394,11 +397,39 @@ public class Group21 {
             }
             returnMenu();
     }
-	
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
     public static void scalarMultiplication(){
+        Scanner input = new Scanner(System.in);
 
+        System.out.println("Enter the value for multiplication: ");
+        int value = input.nextInt();
+        System.out.print("Enter the number of rows of the matrices: ");
+        int rows = input.nextInt();
+        System.out.print("Enter the number of columns of the matrices: ");
+        int columns = input.nextInt();
+        System.out.println("Enter the elements of the first matrix: ");
+    
+        double matrix[][] = new double[rows][columns];
+
+        for(int i = 0; i < rows; i++)
+        {
+            for(int j = 0; j < columns; j++)
+            {
+                matrix[i][j] = input.nextInt();
+            }
+        }
+
+        for(int i = 0; i < rows; i++)
+        {
+            for(int j = 0; j < columns; j++)
+            {
+                matrix[i][j] *= value;
+            }
+        }
+
+        printResult(matrix, rows, columns);
     }
-	
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
     public static void transpose(){
 	    Scanner input = new Scanner(System.in);
         System.out.print("Enter the number of rows of the matrices: ");
@@ -427,6 +458,7 @@ public class Group21 {
         System.out.println();
         printResult(temp, columns, rows);
     }
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
     public static void printResult(double[][] matrix, int rows, int columns){
         for(int i = 0; i < rows; i++)
         {
@@ -558,8 +590,10 @@ public class Group21 {
         }
         System.out.printf("The trace of the matrix is: %.2f\n\n",sum);
     }
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
     public static void adjoint(){
     }
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
     /* An orthogonal matrix is a specially defined square matrix such as, 2x2, 3x3, 4x4 etc. . */
     public static void orthogonal(){
         Scanner input = new Scanner(System.in);
