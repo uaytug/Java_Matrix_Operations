@@ -86,8 +86,10 @@ public class Group21 {
         System.out.println("11. Exit");
         System.out.print("Your choice: ");
         try(Scanner input = new Scanner(System.in)){
-            int choice = input.nextInt();
-            switch (choice) {
+
+            if (input.hasNextInt()) {
+                int choice = input.nextInt();
+                switch (choice) {
                 case 1:
                     clearTerminal();
                     addition();
@@ -131,22 +133,27 @@ public class Group21 {
                     break;
                 case 10:
                     clearTerminal();
-                    // code for orthogonal matrix
+                    orthogonal();
                     returnMenu();
                     break;
                 case 11:
                     clearTerminal();
                     System.out.println("Exiting...");
                     System.exit(0);
+                    input.close();
                     break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
                     break;
             }
+            } else {
+                System.err.println("An input error occurred, please enter a number value!");
+            }         
+            
         }    
     }
     public static void returnMenu(){
-        System.out.println("What do you want to do next");
+        System.out.println("What do you want to do next?");
         System.out.println("1. Return to main menu");
         System.out.println("2. Exit");
         System.out.print("Your choice: ");
@@ -154,34 +161,37 @@ public class Group21 {
             int choice = input.nextInt();
             switch (choice) {
                 case 1:
-                    clearTerminal();
                     menu();
                     break;
                 case 2:
                     clearTerminal();
+                    System.out.println("Exiting...");
+                    System.exit(0);
+                    input.close();
                     break;
             }
         }
     }
+    
     public static void addition(){
         Scanner input = new Scanner(System.in);
         System.out.print("Enter the number of rows of the matrices: ");
         int rows = input.nextInt();
         System.out.print("Enter the number of columns of the matrices: ");
         int columns = input.nextInt();
-        int[][] matrix1 = new int[rows][columns];
-        int[][] matrix2 = new int[rows][columns];
-        int[][] resultMatrix = new int[rows][columns];
+        double[][] matrix1 = new double[rows][columns];
+        double[][] matrix2 = new double[rows][columns];
+        double[][] resultMatrix = new double[rows][columns];
         System.out.println("Enter the elements of the first matrix: ");
         for(int i=0; i<rows; i++){
             for(int j=0; j<columns; j++){
-                matrix1[i][j] = input.nextInt();
+                matrix1[i][j] = input.nextDouble();
             }
         }
         System.out.println("Enter the elements of the second matrix: ");
         for(int i=0; i<rows; i++){
             for(int j=0; j<columns; j++){
-                matrix2[i][j] = input.nextInt();
+                matrix2[i][j] = input.nextDouble();
             }
         }
         for(int i=0; i<rows; i++){
@@ -204,19 +214,19 @@ public class Group21 {
         int rows = input.nextInt();
         System.out.print("Enter the number of columns of the matrices: ");
         int columns = input.nextInt();
-        int[][] matrix1 = new int[rows][columns];
-        int[][] matrix2 = new int[rows][columns];
-        int[][] resultMatrix = new int[rows][columns];
+        double[][] matrix1 = new double[rows][columns];
+        double[][] matrix2 = new double[rows][columns];
+        double[][] resultMatrix = new double[rows][columns];
         System.out.println("Enter the elements of the first matrix: ");
         for(int i=0; i<rows; i++){
             for(int j=0; j<columns; j++){
-                matrix1[i][j] = input.nextInt();
+                matrix1[i][j] = input.nextDouble();
             }
         }
         System.out.println("Enter the elements of the second matrix: ");
         for(int i=0; i<rows; i++){
             for(int j=0; j<columns; j++){
-                matrix2[i][j] = input.nextInt();
+                matrix2[i][j] = input.nextDouble();
             }
         }
         for(int i=0; i<rows; i++){
@@ -239,19 +249,19 @@ public class Group21 {
         int rows = input.nextInt();
         System.out.print("Enter the number of columns of the matrices: ");
         int columns = input.nextInt();
-        int[][] matrix1 = new int[rows][columns];
-        int[][] matrix2 = new int[rows][columns];
-        int[][] resultMatrix = new int[rows][columns];
+        double[][] matrix1 = new double[rows][columns];
+        double[][] matrix2 = new double[rows][columns];
+        double[][] resultMatrix = new double[rows][columns];
         System.out.println("Enter the elements of the first matrix: ");
         for(int i=0; i<rows; i++){
             for(int j=0; j<columns; j++){
-                matrix1[i][j] = input.nextInt();
+                matrix1[i][j] = input.nextDouble();
             }
         }
         System.out.println("Enter the elements of the second matrix: ");
         for(int i=0; i<rows; i++){
             for(int j=0; j<columns; j++){
-                matrix2[i][j] = input.nextInt();
+                matrix2[i][j] = input.nextDouble();
             }
         }
         for(int i=0; i<rows; i++){
@@ -280,13 +290,13 @@ public class Group21 {
             System.out.println("Enter the elements of the first matrix: ");
             for(int i=0; i<rows; i++){
                 for(int j=0; j<columns; j++){
-                    matrix1[i][j] = input.nextInt();
+                    matrix1[i][j] = input.nextDouble();
                 }
             }
             System.out.println("Enter the elements of the second matrix: ");
             for(int i=0; i<rows; i++){
                 for(int j=0; j<columns; j++){
-                    matrix2[i][j] = input.nextInt();
+                    matrix2[i][j] = input.nextDouble();
                 }
             }
             for(int i=0; i<rows; i++){
@@ -310,7 +320,7 @@ public class Group21 {
 	
     public static void transpose(){
 
-	Scanner input = new Scanner(System.in);
+	    Scanner input = new Scanner(System.in);
 
         System.out.print("Enter the number of rows of the matrices: ");
         int rows = input.nextInt();
@@ -324,11 +334,10 @@ public class Group21 {
         {
             for(int j = 0; j < columns; j++)
             {
-                matrix[i][j] = input.nextInt();
+                matrix[i][j] = input.nextDouble();
             }
         }
 
-        input.close();
 
         double temp[][] = new double[columns][rows];
 
@@ -392,7 +401,6 @@ public class Group21 {
             }
             System.out.println();
         }
-        input.close();
 
         int n = matrix.length;
         double[][] augmentedMatrix = new double[n][2*n];
@@ -483,7 +491,6 @@ public class Group21 {
             }
             System.out.println();
         }
-        input.close();
         
         //Printing matrix
         System.out.println("You have entered the following matrix: ");
@@ -506,20 +513,40 @@ public class Group21 {
 
     }
     /* An orthogonal matrix is a specially defined square matrix such as, 2x2, 3x3, 4x4 etc. . */
-    public static boolean orthogonal(int [][]matrix, int rowNumber, int columnNumber){
-        // firstly, we should check row and column numbers. If there is no equality, this means the matrix is not orthogonal.
-        if (rowNumber != columnNumber)
+    public static void orthogonal(){
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter the number of rows of the matrices: ");
+        int rows = input.nextInt();
+        System.out.print("Enter the number of columns of the matrices: ");
+        int columns = input.nextInt();
+        System.out.print("Enter the elements of the matrix: ");
+
+        double matrix[][] = new double[rows][columns];
+
+        for(int i = 0; i < rows; i++)
         {
-            return false;
+            for(int j = 0; j < columns; j++)
+            {
+                matrix[i][j] = input.nextDouble();
+            }
+        }
+
+        // firstly, we should check row and column numbers. If there is no equality, this means the matrix is not orthogonal.
+        if (rows != columns)
+        {
+            System.out.println("The matrix is not an orthogonal matrix!");
+            return;
         }
 
         
 		
 		// Secondly, we should create nested for loop to find the transpose of the matrix.
-		int [][]transpose = new int[columnNumber][rowNumber];
-		for (int i = 0; i < columnNumber; i++)
+		double [][]transpose = new double[columns][rows];
+		for (int i = 0; i < columns; i++)
         {
-            for (int j = 0; j < rowNumber; j++)
+            for (int j = 0; j < rows; j++)
             {
                 transpose[i][j] = matrix[j][i];
             }
@@ -527,20 +554,61 @@ public class Group21 {
 
 
         /* -- TODO -- : We should compare the equality of the inverse matrix and transpose matrix */
+
+        int n = matrix.length;
+        double[][] augmentedMatrix = new double[n][2*n];
+        
+        // Create an augmented matrix [matrix | I]
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                augmentedMatrix[i][j] = matrix[i][j];
+                augmentedMatrix[i][j+n] = (i == j) ? 1 : 0;
+            }
+        }
+        
+        // Apply Gauss-Jordan elimination
+        for (int i = 0; i < n; i++) {
+            double pivot = augmentedMatrix[i][i];
+            for (int j = 0; j < 2*n; j++) {
+                augmentedMatrix[i][j] /= pivot;
+            }
+            for (int k = 0; k < n; k++) {
+                if (k != i) {
+                    double factor = augmentedMatrix[k][i];
+                    for (int j = 0; j < 2*n; j++) {
+                        augmentedMatrix[k][j] -= factor * augmentedMatrix[i][j];
+                    }
+                }
+            }
+        }
+        
+        // Extract the inverse matrix
+        double[][] inverseMatrix = new double[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                inverseMatrix[i][j] = augmentedMatrix[i][j+n];
+            }
+        }
+
+        if(inverseMatrix == transpose)
+        {
+            System.out.println("The matrix is an orthogonal matrix!");
+            return;
+        }
 			
 		
 		/* To find the product of the input matrix and its transpose, we coded this 3 for loops. */
         // We declared new matrix that is called product in order to store product results.
-		int [][]product = new int[rowNumber][columnNumber];
+		double [][]product = new double[rows][columns];
         
-		for (int i = 0; i < rowNumber; i++) 
+		for (int i = 0; i < rows; i++) 
 		{
             
-			for (int j = 0; j < columnNumber; j++) 
+			for (int j = 0; j < columns; j++) 
 			{
 		
 				int sum = 0; // we declared a variable for the sum of the products. In every iterations, it will start from zero.
-				for (int k = 0; k < columnNumber; k++) 
+				for (int k = 0; k < columns; k++) 
 				{
 					// To multiply the input matrix and its transpose, we created this operation.
 					sum += (matrix[i][k] * transpose[k][j]);
@@ -551,22 +619,25 @@ public class Group21 {
 		}
 		
 		/* Now we should check our product matrix. If it is identity matrix, our main matrix must be orthogonal. If not, it cannot be an orthogonal matrix. To check the product matrix, we should create a nested for loop again. */ 
-		for (int i = 0; i < rowNumber; i++) 
+		for (int i = 0; i < rows; i++) 
 		{
-			for (int j = 0; j < columnNumber; j++) 
+			for (int j = 0; j < columns; j++) 
 			{
 				if (i != j && product[i][j] != 0)
                 {
-                    return false;
+                    System.out.println("The matrix is not an orthogonal matrix!");
+                    return;
                 }else if (i == j && product[i][j] != 1)
                 {
-                    return false;
+                    System.out.println("The matrix is not an orthogonal matrix!");
+                    return;
                 }	
 			}
 		}
 		
         // If there is no problem until this code line, our input matrix must be an orthogonal matrix.
-		return true;
+		System.out.println("The matrix is an orthogonal matrix!");
+        
 
     }
     public static void clearTerminal(){
