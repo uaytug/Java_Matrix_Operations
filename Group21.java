@@ -470,9 +470,9 @@ public class Group21 {
             System.out.println();
         }
     }
-/*-------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------INVERSE OF A MATRIX----------------------------------------------------------------------------*/
     public static double[][] inverse(){
-    	//In order to take inverse a matrix, it has to be square!
+	//In order to take inverse a matrix, it has to be square!
         Scanner input = new Scanner(System.in);
         int rows;
         int columns;
@@ -486,6 +486,7 @@ public class Group21 {
                 System.out.println("The matrix has to be square like 2x2, 3x3 etc.\n");
             }
         }while(rows!=columns);
+        
         System.out.printf("The size is %dx%d\n\n",rows,columns);
         double [][]matrix=new double[rows][columns];
         System.out.println("Please enter the values to the matrix:\n");
@@ -498,55 +499,133 @@ public class Group21 {
             }
             System.out.println();
         }
-        int n = matrix.length;
-        double[][] augmentedMatrix = new double[n][2*n];
+
+        double determinant = calculateDeterminant(matrix);
+
+        if (determinant == 0) {
+            System.out.println("Determinant is zero, inverse of the matrix does not exist.");
+        }
+        else{
+            double[][] adjointMatrix = new double[rows][columns];
+    
+            for(int i=0; i<rows; i++) {
+                for(int j=0; j<columns; j++) {
+                    adjointMatrix[i][j] = cofactor(matrix, i, j);
+                }
+            }
         
-        // Create an augmented matrix [matrix | I]
+            // Transpose the adjoint matrix to get the final inverse
+            double[][] inverseMatrix = transpose(adjointMatrix);
+    
+            
+            System.out.printf("You have entered the following matrix:\n");     
+            for(int i=0;i<rows;i++){
+                for(int j=0;j<columns;j++){
+                    System.out.printf("%.1f\t", matrix[i][j]);
+                }
+                System.out.println("\n");
+            }
+            
+            System.out.printf("The inverse of a matrix is:\n");
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < columns; j++) {
+                    System.out.printf("%.1f\t", 1/determinant*inverseMatrix[i][j]);
+                }
+                System.out.println("\n");
+            }
+            return inverseMatrix;
+        }
+        return null;
+    }
+	
+    public static double[][] transpose(double[][] matrix) {
+	// Get the number of rows in the input matrix
+    	int rows = matrix.length;
+	
+    	// Get the number of columns in the input matrix (assuming it's a valid matrix with at least one row)
+    	int columns = matrix[0].length;
+	
+    	// Create a new 2D array to hold the transposed matrix with dimensions 'columns x rows'
+    	double[][] transposedMatrix = new double[columns][rows];
+	
+    	// Nested loop to iterate through each element of the original matrix
+    	for(int i=0; i<rows; i++) {
+		for(int j=0; j<columns; j++) {
+	    	// Swap the row and column indices to transpose the element
+	    		transposedMatrix[j][i] = matrix[i][j];
+	        }
+	    }
+    	// Return the transposed matrix
+    	return transposedMatrix;    
+    }
+
+    public static double calculateDeterminant(double[][] matrix) {
+        // Get the size of the matrix (assuming it's square)
+        int n = matrix.length;
+    
+        // Check if the matrix is square (i.e., has the same number of rows and columns)
+        if (n != matrix[0].length) {
+            throw new IllegalArgumentException("Matrix must be square.");
+        }
+    
+        // Base case: If the matrix is 1x1, return its only element as the determinant
+        if (n == 1) {
+            return matrix[0][0];
+        }
+    
+        // Base case: If the matrix is 2x2, use the simple determinant formula
+        if (n == 2) {
+            return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
+        }
+    
+        // Initialize the determinant value
+        double determinant = 0;
+    
+        // Iterate over the first row of the matrix
+        for (int i = 0; i < n; i++) {
+            // Multiply the element by its cofactor and add it to the determinant
+            determinant += matrix[0][i] * cofactor(matrix, 0, i);
+        }
+    
+        // Return the calculated determinant
+        return determinant;
+    }
+
+    public static double[][] subMatrix(double[][] matrix, int row, int col) {
+        // Get the size of the original matrix
+        int n = matrix.length;
+        
+        // Create a new matrix with one less row and one less column
+        double[][] subMatrix = new double[n - 1][n - 1];
+        
+        // Initialize variables for tracking the position in the new subMatrix
+        int r = 0, c = 0;
+    
+        // Loop through the original matrix
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                augmentedMatrix[i][j] = matrix[i][j];
-                augmentedMatrix[i][j+n] = (i == j) ? 1 : 0;
-            }
-        }
-        // Apply Gauss-Jordan elimination
-        for (int i = 0; i < n; i++) {
-            double pivot = augmentedMatrix[i][i];
-            for (int j = 0; j < 2*n; j++) {
-                augmentedMatrix[i][j] /= pivot;
-            }
-            for (int k = 0; k < n; k++) {
-                if (k != i) {
-                    double factor = augmentedMatrix[k][i];
-                    for (int j = 0; j < 2*n; j++) {
-                        augmentedMatrix[k][j] -= factor * augmentedMatrix[i][j];
+                // Exclude the specified row and column
+                if (i != row && j != col) {
+                    // Copy the value to the subMatrix
+                    subMatrix[r][c++] = matrix[i][j];
+    
+                    // Update row and column indices in the subMatrix
+                    if (c == n - 1) {
+                        c = 0;
+                        r++;
                     }
                 }
             }
         }
-        // Extract the inverse matrix
-        double[][] inverseMatrix = new double[n][n];
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                inverseMatrix[i][j] = augmentedMatrix[i][j+n];
-            }
-        }
-        System.out.printf("You have entered the following matrix:\n");     
-        for(int i=0;i<rows;i++){
-            for(int j=0;j<columns;j++){
-                System.out.printf("%.1f\t", matrix[i][j]);
-            }
-            System.out.println("\n");
-        }
-        System.out.printf("The inverse of a matrix is:\n");
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                System.out.printf("%.1f\t", inverseMatrix[i][j]);
-            }
-            System.out.println("\n");
-        }
-        return inverseMatrix;
+        // Return the resulting subMatrix
+        return subMatrix;
     }
-/*-------------------------------------------------------------------------------------------------------------------------------------*/
+    
+    public static double cofactor(double[][] matrix, int row, int col) {
+        return Math.pow(-1, row + col) * calculateDeterminant(subMatrix(matrix, row, col));
+    }
+    	
+/*--------------------------------------------------------TRACE OF A MATRIX----------------------------------------------------------------------------*/
     public static void trace(){
 	//The trace of a square matrix is the sum of its diagonal entries.
         Scanner input=new Scanner(System.in);
