@@ -19,13 +19,9 @@ following headers.
 - 7 November 2023 16:00-20:00 Presentations @ B-522
 - 14 November 2023 17:00-19:00 Extra Presentations @ B-522, if we can not evaluate all the groups on 7.Nov.2023, only the remaining groups will take place.
 
-<iframe src="https://free.timeanddate.com/countdown/i937r6l8/n107/cf11/cm0/cu4/ct0/cs1/ca0/co0/cr0/ss0/cac000/cpc000/pcfff/tcfff/fn3/fs200/szw320/szh135/iso2023-11-05T23:59:59" allowtransparency="true" frameborder="0" width="608" height="36"></iframe>
-
-
-
 ## To Do
 
-- [ ] Terminal Menu -> Aytuğ --> Partialy done. Improvments will made in future
+- [x] Terminal Menu -> Aytuğ --> Partialy done. Improvments will made in future
 - [x] [Matrix addition](https://www.javatpoint.com/java-program-to-add-two-matrices) -> Aytuğ
 - [x] [Matrix subtraction](https://www.javatpoint.com/java-program-to-subtract-the-two-matrices) -> Aytuğ
 - [x] [Matrix multiplication](https://www.javatpoint.com/java-program-to-multiply-two-matrices) -> Aytuğ
