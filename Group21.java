@@ -113,7 +113,7 @@ public class Group21 {
                     break;
                 case 6:
                     clearTerminal();
-                    // code for transpose
+                    transpose();
                     returnMenu();
                     break;
                 case 7:
@@ -439,9 +439,9 @@ public class Group21 {
         }
     }
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
-    public static void inverse(){
+    public static double[][] inverse(){
     	//In order to take inverse a matrix, it has to be square!
-        Scanner input=new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         int rows;
         int columns;
         //If the rows and columns not the same, ask to the user to enter the size again.
@@ -512,6 +512,7 @@ public class Group21 {
             }
             System.out.println("\n");
         }
+        return inverseMatrix;
     }
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
     public static void trace(){
