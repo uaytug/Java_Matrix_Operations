@@ -108,7 +108,7 @@ public class Group21 {
                     break;
                 case 5:
                     clearTerminal();             
-                    // code for scalar multiplication
+                    scalarMultiplication();
                     returnMenu();
                     break;
                 case 6:
@@ -128,7 +128,7 @@ public class Group21 {
                     break;
                 case 9:
                     clearTerminal();
-                    // code for adjoint
+                    adjoint();
                     returnMenu();
                     break;
                 case 10:
