@@ -30,7 +30,7 @@ following headers.
 - [x] [Transpose of the matrix](https://www.javatpoint.com/java-program-to-transpose-matrix) -> Göktuğ
 - [x] [The inverse of the matrix](https://www.geeksforgeeks.org/adjoint-inverse-matrix/) -> Emircan
 - [x] [Trace of the matrix](https://www.javatpoint.com/normal-and-trace-of-a-matrix-in-java) -> Emircan
-- [ ] [Adjoint of the matrix](https://www.geeksforgeeks.org/adjoint-inverse-matrix/) -> Göktuğ / Emircan
+- [x] [Adjoint of the matrix](https://www.geeksforgeeks.org/adjoint-inverse-matrix/) -> Göktuğ / Emircan
 - [x] [Check the matrix for Orthogonality](https://www.geeksforgeeks.org/check-whether-given-matrix-orthogonal-not/) -> Başar
 
 ## Implementation Notes
