@@ -868,6 +868,57 @@ public class Group21 {
     }
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
     public static void adjoint(){
+    	Scanner input = new Scanner(System.in);
+        int rows;
+        int columns;
+        //If the rows and columns not the same, ask to the user to enter the size again.
+        do{
+            System.out.print("Enter the number of rows of the matrices: ");
+            rows = input.nextInt();
+            System.out.print("Enter the number of columns of the matrices: ");
+            columns = input.nextInt();
+            if(rows!=columns){
+                System.out.println("The matrix has to be square like 2x2, 3x3 etc.\n");
+            }
+        }while(rows!=columns);
+        
+        System.out.printf("The size is %dx%d\n\n",rows,columns);
+        double [][]matrix=new double[rows][columns];
+        System.out.println("Please enter the values to the matrix:\n");
+        //Entering the values
+        for(int i=0;i<rows;i++){
+            for(int j=0;j<columns;j++){
+                System.out.printf("Row %d",i+1);
+                System.out.printf(" - Column %d :\n",j+1);
+                matrix[i][j]=input.nextDouble();
+            }
+            System.out.println();
+        }
+
+        double[][] adjointMatrix = new double[rows][columns];
+    
+        for(int i=0; i<rows; i++) {
+            for(int j=0; j<columns; j++) {
+                adjointMatrix[i][j] = cofactor(matrix, i, j);
+            }
+        }
+
+        System.out.printf("You have entered the following matrix:\n");     
+            for(int i=0;i<rows;i++){
+                for(int j=0;j<columns;j++){
+                    System.out.printf("%.1f\t", matrix[i][j]);
+                }
+                System.out.println("\n");
+            }
+            
+            System.out.printf("The adjoint of a matrix is:\n");
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < columns; j++) {
+                    System.out.printf("%.1f\t", adjointMatrix[i][j]);
+                }
+                System.out.println("\n");
+            }
+            return adjointMatrix;
     }
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
     /* An orthogonal matrix is a specially defined square matrix such as, 2x2, 3x3, 4x4 etc. . */
