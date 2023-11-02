@@ -1027,6 +1027,20 @@ public class Group21 {
                 }	
 			}
 		}
+        // We check the sum of vector columns in our matrix. If it is not equal to 1, the matrix cannot be an orthogonal matrix.
+        for (int i = 0; i < columns; i++) 
+		{
+            int summation = 0;
+			for (int j = 0; j < rows; j++) 
+			{
+				summation += matrix[j][i]*matrix[j][i];
+			}
+            if(Math.sqrt(summation) != 1)
+            {
+                System.out.println("The matrix is not an orthogonal matrix!");
+
+            }
+		}
         // If there is no problem until this code line, our input matrix must be an orthogonal matrix.
 		System.out.println("The matrix is an orthogonal matrix!");
     }
