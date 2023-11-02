@@ -879,7 +879,7 @@ public class Group21 {
         System.out.printf("The trace of the matrix is: %.2f\n\n",sum);
     }
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
-    public static void adjoint(){
+    public static double[][] adjoint(){
     	Scanner input = new Scanner(System.in);
         int rows;
         int columns;
