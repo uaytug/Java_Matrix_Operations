@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 public class Group21 {
     public static void asciiArt(){
@@ -955,52 +956,42 @@ public class Group21 {
             System.out.println("The matrix is not an orthogonal matrix!");
             return;
         }
-		// Secondly, we should create nested for loop to find the transpose of the matrix.
-		double [][]transpose = new double[columns][rows];
-		for (int i = 0; i < columns; i++)
-        {
-            for (int j = 0; j < rows; j++)
-            {
-                transpose[i][j] = matrix[j][i];
-            }
-        }
+		
+		double [][]transposeMatrix = transpose(matrix);
         /* -- TODO -- : We should compare the equality of the inverse matrix and transpose matrix */
-        int n = matrix.length;
-        double[][] augmentedMatrix = new double[n][2*n];
-        // Create an augmented matrix [matrix | I]
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                augmentedMatrix[i][j] = matrix[i][j];
-                augmentedMatrix[i][j+n] = (i == j) ? 1 : 0;
-            }
+        double determinant = calculateDeterminant(matrix);
+
+        if (determinant == 0) {
+            System.out.println("Determinant is zero, inverse of the matrix does not exist.");
         }
-        // Apply Gauss-Jordan elimination
-        for (int i = 0; i < n; i++) {
-            double pivot = augmentedMatrix[i][i];
-            for (int j = 0; j < 2*n; j++) {
-                augmentedMatrix[i][j] /= pivot;
-            }
-            for (int k = 0; k < n; k++) {
-                if (k != i) {
-                    double factor = augmentedMatrix[k][i];
-                    for (int j = 0; j < 2*n; j++) {
-                        augmentedMatrix[k][j] -= factor * augmentedMatrix[i][j];
-                    }
+        else{
+            double[][] adjointMatrix = new double[rows][columns];
+    
+            for(int i=0; i<rows; i++) {
+                for(int j=0; j<columns; j++) {
+                    adjointMatrix[i][j] = cofactor(matrix, i, j);
+                    if(adjointMatrix[i][j] == 0 || adjointMatrix[i][j] == -0)
+                    {
+                        adjointMatrix[i][j] = 0;
+                    } 
                 }
             }
-        }
-        // Extract the inverse matrix
-        double[][] inverseMatrix = new double[n][n];
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                inverseMatrix[i][j] = augmentedMatrix[i][j+n];
+        
+            // Transpose the adjoint matrix to get the final inverse
+            double[][] inverseMatrix = transpose(adjointMatrix);
+    
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < columns; j++) {
+                    inverseMatrix[i][j] = 1/determinant*inverseMatrix[i][j];
+                }
+            }
+            if(Arrays.deepEquals(inverseMatrix, transposeMatrix))
+            {
+                System.out.println("The matrix is an orthogonal matrix!");
+                return;
             }
         }
-        if(inverseMatrix == transpose)
-        {
-            System.out.println("The matrix is an orthogonal matrix!");
-            return;
-        }
+        
 		/* To find the product of the input matrix and its transpose, we coded this 3 for loops. */
         // We declared new matrix that is called product in order to store product results.
 		double [][]product = new double[rows][columns];
@@ -1014,7 +1005,7 @@ public class Group21 {
 				for (int k = 0; k < columns; k++) 
 				{
 					// To multiply the input matrix and its transpose, we created this operation.
-					sum += (matrix[i][k] * transpose[k][j]);
+					sum += (matrix[i][k] * transposeMatrix[k][j]);
 				}
 			
 				product[i][j] = sum;
@@ -1039,6 +1030,7 @@ public class Group21 {
         // If there is no problem until this code line, our input matrix must be an orthogonal matrix.
 		System.out.println("The matrix is an orthogonal matrix!");
     }
+    
     public static void clearTerminal(){
         try {
             if (System.getProperty("os.name").contains("Windows")) {
