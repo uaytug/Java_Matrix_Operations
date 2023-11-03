@@ -1,6 +1,6 @@
 import java.util.Arrays;
 import java.util.Scanner;
-public class group_21 {
+public class group_21_yeni {
     public static void asciiArt(){
         System.out.println("\n" + //
                 "\n" + //
@@ -969,17 +969,20 @@ public static double[][] adjoint(){
         Scanner input = new Scanner(System.in);
         System.out.print("Enter the number of rows of the matrices: ");
         int rows = input.nextInt();
+        if(!check_is_numeric(rows)){
+            System.out.println("Invalid input. Please try again.");
+            orthogonal();
+        }
         System.out.print("Enter the number of columns of the matrices: ");
         int columns = input.nextInt();
+        if(!check_is_numeric(columns)){
+            System.out.println("Invalid input. Please try again.");
+            orthogonal();
+        }
         System.out.print("Enter the elements of the matrix: ");
         double matrix[][] = new double[rows][columns];
-        for(int i = 0; i < rows; i++)
-        {
-            for(int j = 0; j < columns; j++)
-            {
-                matrix[i][j] = input.nextDouble();
-            }
-        }
+        fill_matrix(rows, columns, matrix);
+        
         // firstly, we should check row and column numbers. If there is no equality, this means the matrix is not orthogonal.
         if (rows != columns)
         {
