@@ -1009,7 +1009,7 @@ public static double[][] adjoint(){
 /*-----------------------------------------------------------ORTHOGONAL MATRIX-------------------------------------------------------*/
     /* An orthogonal matrix is a specially defined square matrix such as, 2x2, 3x3, 4x4 etc. . */
     public static void orthogonal(){
-       int[] dimensions = getSquareMatrix();
+        int[] dimensions = getSquareMatrix();
         int rows = dimensions[0];
         int columns = dimensions[1];
 
