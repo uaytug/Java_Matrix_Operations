@@ -416,208 +416,223 @@ public class group_21 {
 /*-----------------------------------------------------------ADDITION OF MATRIX-------------------------------------------------------------------*/
     public static void addition(){
         Scanner input = new Scanner(System.in);
-        System.out.print("Enter the number of rows of the matrices: ");
-        int rows = input.nextInt();
-        if(!check_is_numeric(rows)){
-            System.out.println("Invalid input. Please try again.");
-            addition();
-        }
-        System.out.print("Enter the number of columns of the matrices: ");
-        int columns = input.nextInt();
-        if(!check_is_numeric(columns)){
-            System.out.println("Invalid input. Please try again.");
-            addition();
-        }
-        if(check_matrix_limits(rows, columns)){
-            double[][] matrix1 = new double[rows][columns];
-            double[][] matrix2 = new double[rows][columns];
-            double[][] resultMatrix = new double[rows][columns];
-            System.out.println("Enter the elements of the first matrix: ");
-            for(int i=0; i<rows; i++){
-                for(int j=0; j<columns; j++){
-                    System.out.printf("Row %d",i+1);
-                    System.out.printf(" - Column %d :\n",j+1);
-                    matrix1[i][j] = input.nextDouble();
-                }
+        int rows;
+        int columns;
+
+        do{
+            System.out.print("Enter the number of rows of the matrices: ");
+            while (!input.hasNextInt()) {
+                System.out.println("Invalid input. Please enter an integer. \n");
+                System.out.print("Enter the number of rows of the matrices: ");
+                input.next(); // Consume invalid input
             }
-            System.out.println("Enter the elements of the second matrix: ");
-            for(int i=0; i<rows; i++){
-                for(int j=0; j<columns; j++){
-                    System.out.printf("Row %d",i+1);
-                    System.out.printf(" - Column %d :\n",j+1);
-                    matrix2[i][j] = input.nextDouble();
-                }
+            rows = input.nextInt();
+
+            System.out.print("Enter the number of columns of the matrices: ");
+            while (!input.hasNextInt()) {
+                System.out.println("Invalid input. Please enter an integer.");
+                System.out.print("Enter the number of columns of the matrices: ");
+                input.next(); // Consume invalid input
             }
-            for(int i=0; i<rows; i++){
-                for(int j=0; j<columns; j++){
-                    resultMatrix[i][j] = matrix1[i][j] + matrix2[i][j];
-                }
+            columns = input.nextInt();
+            
+            if (!check_matrix_limits(rows, columns)) {
+                System.out.println("The matrix has to be square and between 2x2 and 5x5.\n");
             }
-            System.out.println("The result of the addition is: ");
-            for(int i=0; i<rows; i++){
-                for(int j=0; j<columns; j++){
-                    System.out.print(resultMatrix[i][j] + " ");
-                }
-                System.out.println();
+        }while(!check_matrix_limits(rows,columns));
+        
+        double matrix1[][] = new double[rows][columns];
+        double matrix2[][] = new double[rows][columns];
+
+        System.out.println("Enter the elements of the first matrix: ");
+        matrix1=fill_matrix(rows, columns, matrix1);
+
+        System.out.println("Enter the elements of the second matrix: ");
+        matrix2=fill_matrix(rows, columns, matrix2);
+
+        double resultMatrix[][] = new double[rows][columns];
+        for(int i=0; i<rows; i++){
+            for(int j=0; j<columns; j++){
+                resultMatrix[i][j] = matrix1[i][j] + matrix2[i][j];
             }
         }
-        else{
-            System.out.println("The size of the matrix has to be between 2x2 and 5x5");
+        System.out.println("The result of the addition is: ");
+        for(int i=0; i<rows; i++){
+            for(int j=0; j<columns; j++){
+                System.out.print(resultMatrix[i][j] + " ");
+            }
+            System.out.println();
         }
         returnMenu();
     }
+    
 /*------------------------------------------------------------SUBSTRACTION OF MATRIX-----------------------------------------------------------*/
     public static void subtraction(){
         Scanner input = new Scanner(System.in);
-        System.out.print("Enter the number of rows of the matrices: ");
-        int rows = input.nextInt();
-        if(!check_is_numeric(rows)){
-            System.out.println("Invalid input. Please try again.");
-            subtraction();
-        }
-        System.out.print("Enter the number of columns of the matrices: ");
-        int columns = input.nextInt();
-        if(!check_is_numeric(columns)){
-            System.out.println("Invalid input. Please try again.");
-            subtraction();
-        }
-        if(check_matrix_limits(rows, columns)){
-            double[][] matrix1 = new double[rows][columns];
-            double[][] matrix2 = new double[rows][columns];
-            double[][] resultMatrix = new double[rows][columns];
-            System.out.println("Enter the elements of the first matrix: ");
-            for(int i=0; i<rows; i++){
-                for(int j=0; j<columns; j++){
-                    matrix1[i][j] = input.nextDouble();
-                }
+        int rows;
+        int columns;
+
+        do{
+            System.out.print("Enter the number of rows of the matrices: ");
+            while (!input.hasNextInt()) {
+                System.out.println("Invalid input. Please enter an integer. \n");
+                System.out.print("Enter the number of rows of the matrices: ");
+                input.next(); // Consume invalid input
             }
-            System.out.println("Enter the elements of the second matrix: ");
-            for(int i=0; i<rows; i++){
-                for(int j=0; j<columns; j++){
-                    matrix2[i][j] = input.nextDouble();
-                }
+            rows = input.nextInt();
+
+            System.out.print("Enter the number of columns of the matrices: ");
+            while (!input.hasNextInt()) {
+                System.out.println("Invalid input. Please enter an integer.");
+                System.out.print("Enter the number of columns of the matrices: ");
+                input.next(); // Consume invalid input
             }
-            for(int i=0; i<rows; i++){
-                for(int j=0; j<columns; j++){
-                    resultMatrix[i][j] = matrix1[i][j] - matrix2[i][j];
-                }
+            columns = input.nextInt();
+            
+            if (!check_matrix_limits(rows, columns)) {
+                System.out.println("The matrix has to be square and between 2x2 and 5x5.\n");
             }
-            System.out.println("The result of the subtraction is: ");
-            for(int i=0; i<rows; i++){
-                for(int j=0; j<columns; j++){
-                    System.out.print(resultMatrix[i][j] + " ");
-                }
-                System.out.println();
+        }while(!check_matrix_limits(rows,columns));
+        
+        double matrix1[][] = new double[rows][columns];
+        double matrix2[][] = new double[rows][columns];
+
+        System.out.println("Enter the elements of the first matrix: ");
+        matrix1=fill_matrix(rows, columns, matrix1);
+
+        System.out.println("Enter the elements of the second matrix: ");
+        matrix2=fill_matrix(rows, columns, matrix2);
+
+        double resultMatrix[][] = new double[rows][columns];
+
+        for(int i=0; i<rows; i++){
+            for(int j=0; j<columns; j++){
+                resultMatrix[i][j] = matrix1[i][j] - matrix2[i][j];
             }
         }
-        else{
-            System.out.println("The size of the matrix has to be between 2x2 and 5x5");
+        System.out.println("The result of the subtraction is: ");
+        for(int i=0; i<rows; i++){
+            for(int j=0; j<columns; j++){
+                System.out.print(resultMatrix[i][j] + " ");
+            }
+            System.out.println();
         }
+        
         returnMenu();
     }
+        
+    
 /*-----------------------------------------------------------MULTIPLICATION OF MATRIX----------------------------------------------------------------*/
     public static void multiplication(){
         Scanner input = new Scanner(System.in);
-        System.out.print("Enter the number of rows of the matrices: ");
-        int rows = input.nextInt();
-        if(!check_is_numeric(rows)){
-            System.out.println("Invalid input. Please try again.");
-            multiplication();
-        }
-        System.out.print("Enter the number of columns of the matrices: ");
-        int columns = input.nextInt();
-        if(!check_is_numeric(columns)){
-            System.out.println("Invalid input. Please try again.");
-            multiplication();
-        }
-        if(check_matrix_limits(rows, columns)){
-            double[][] matrix1 = new double[rows][columns];
-            double[][] matrix2 = new double[rows][columns];
-            double[][] resultMatrix = new double[rows][columns];
-            System.out.println("Enter the elements of the first matrix: ");
-            for(int i=0; i<rows; i++){
-                for(int j=0; j<columns; j++){
-                    System.out.printf("Row %d",i+1);
-                    System.out.printf(" - Column %d :\n",j+1);
-                    matrix1[i][j] = input.nextDouble();
-                }
+        int rows;
+        int columns;
+
+        do{
+            System.out.print("Enter the number of rows of the matrices: ");
+            while (!input.hasNextInt()) {
+                System.out.println("Invalid input. Please enter an integer. \n");
+                System.out.print("Enter the number of rows of the matrices: ");
+                input.next(); // Consume invalid input
             }
-            System.out.println("Enter the elements of the second matrix: ");
-            for(int i=0; i<rows; i++){
-                for(int j=0; j<columns; j++){
-                    System.out.printf("Row %d",i+1);
-                    System.out.printf(" - Column %d :\n",j+1);
-                    matrix2[i][j] = input.nextDouble();
-                }
+            rows = input.nextInt();
+
+            System.out.print("Enter the number of columns of the matrices: ");
+            while (!input.hasNextInt()) {
+                System.out.println("Invalid input. Please enter an integer.");
+                System.out.print("Enter the number of columns of the matrices: ");
+                input.next(); // Consume invalid input
             }
-            for(int i=0; i<rows; i++){
-                for(int j=0; j<columns; j++){
-                    resultMatrix[i][j] = matrix1[i][j] * matrix2[i][j];
-                }
+            columns = input.nextInt();
+            
+            if (!check_matrix_limits(rows, columns)) {
+                System.out.println("The matrix has to be square and between 2x2 and 5x5.\n");
             }
-            System.out.println("The result of the multiplication is: ");
-            for(int i=0; i<rows; i++){
-                for(int j=0; j<columns; j++){
-                    System.out.print(resultMatrix[i][j] + " ");
-                }
-                System.out.println();
+        }while(!check_matrix_limits(rows,columns));
+        
+        double matrix1[][] = new double[rows][columns];
+        double matrix2[][] = new double[rows][columns];
+
+        System.out.println("Enter the elements of the first matrix: ");
+        matrix1=fill_matrix(rows, columns, matrix1);
+
+        System.out.println("Enter the elements of the second matrix: ");
+        matrix2=fill_matrix(rows, columns, matrix2);
+
+        double resultMatrix[][] = new double[rows][columns];
+
+        for(int i=0; i<rows; i++){
+            for(int j=0; j<columns; j++){
+                resultMatrix[i][j] = matrix1[i][j] * matrix2[i][j];
             }
         }
-        else{
-            System.out.println("The size of the matrix has to be between 2x2 and 5x5");
+
+        System.out.println("The result of the multiplication is: ");
+        for(int i=0; i<rows; i++){
+            for(int j=0; j<columns; j++){
+                System.out.print(resultMatrix[i][j] + " ");
+            }
+            System.out.println();
         }
+
         returnMenu();
     }
+        
 /*------------------------------------------------------DIVISION OF MATRIX------------------------------------------------------------------*/
     public static void division(){
-            Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
+        int rows;
+        int columns;
+
+        do{
             System.out.print("Enter the number of rows of the matrices: ");
-            int rows = input.nextInt();
-            if(!check_is_numeric(rows)){
-                System.out.println("Invalid input. Please try again.");
-                division();
+            while (!input.hasNextInt()) {
+                System.out.println("Invalid input. Please enter an integer. \n");
+                System.out.print("Enter the number of rows of the matrices: ");
+                input.next(); // Consume invalid input
             }
+            rows = input.nextInt();
+
             System.out.print("Enter the number of columns of the matrices: ");
-            int columns = input.nextInt();
-            if(!check_is_numeric(columns)){
-                System.out.println("Invalid input. Please try again.");
-                division();
+            while (!input.hasNextInt()) {
+                System.out.println("Invalid input. Please enter an integer.");
+                System.out.print("Enter the number of columns of the matrices: ");
+                input.next(); // Consume invalid input
             }
-            if(check_matrix_limits(rows, columns)){
-                double[][] matrix1 = new double[rows][columns];
-                double[][] matrix2 = new double[rows][columns];
-                double[][] resultMatrix = new double[rows][columns];
-                System.out.println("Enter the elements of the first matrix: ");
-                for(int i=0; i<rows; i++){
-                    for(int j=0; j<columns; j++){
-                        System.out.printf("Row %d",i+1);
-                        System.out.printf(" - Column %d :\n",j+1);
-                        matrix1[i][j] = input.nextDouble();
-                    }
-                }
-                System.out.println("Enter the elements of the second matrix: ");
-                for(int i=0; i<rows; i++){
-                    for(int j=0; j<columns; j++){
-                        System.out.printf("Row %d",i+1);
-                        System.out.printf(" - Column %d :\n",j+1);
-                        matrix2[i][j] = input.nextDouble();
-                    }
-                }
-                for(int i=0; i<rows; i++){
-                    for(int j=0; j<columns; j++){
-                        resultMatrix[i][j] = matrix1[i][j] / matrix2[i][j];
-                    }
-                }
-                System.out.println("The result of the division is: ");
-                for(int i=0; i<rows; i++){
-                    for(int j=0; j<columns; j++){
-                        System.out.print(resultMatrix[i][j] + " ");
-                    }
-                    System.out.println();
-            }} else{
-                System.out.println("The size of the matrix has to be between 2x2 and 5x5");
+            columns = input.nextInt();
+            
+            if (!check_matrix_limits(rows, columns)) {
+                System.out.println("The matrix has to be square and between 2x2 and 5x5.\n");
             }
-            returnMenu();
+        }while(!check_matrix_limits(rows,columns));
+        
+        double matrix1[][] = new double[rows][columns];
+        double matrix2[][] = new double[rows][columns];
+
+        System.out.println("Enter the elements of the first matrix: ");
+        matrix1=fill_matrix(rows, columns, matrix1);
+
+        System.out.println("Enter the elements of the second matrix: ");
+        matrix2=fill_matrix(rows, columns, matrix2);
+
+        double resultMatrix[][] = new double[rows][columns];
+
+
+        for(int i=0; i<rows; i++){
+            for(int j=0; j<columns; j++){
+                resultMatrix[i][j] = matrix1[i][j] / matrix2[i][j];
+            }
+        }
+        
+        System.out.println("The result of the division is: ");
+        for(int i=0; i<rows; i++){
+            for(int j=0; j<columns; j++){
+                System.out.print(resultMatrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+        
+        returnMenu();
     }
 /*------------------------------------------------------SCALAR MULTIPLICATION OF MATRIX-----------------------------------------------------*/
     public static void scalarMultiplication(){
