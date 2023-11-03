@@ -1009,26 +1009,16 @@ public static double[][] adjoint(){
 /*-----------------------------------------------------------ORTHOGONAL MATRIX-------------------------------------------------------*/
     /* An orthogonal matrix is a specially defined square matrix such as, 2x2, 3x3, 4x4 etc. . */
     public static void orthogonal(){
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter the number of rows of the matrices: ");
-        int rows = input.nextInt();
-        System.out.print("Enter the number of columns of the matrices: ");
-        int columns = input.nextInt();
-        System.out.print("Enter the elements of the matrix: ");
-        double matrix[][] = new double[rows][columns];
-        for(int i = 0; i < rows; i++)
-        {
-            for(int j = 0; j < columns; j++)
-            {
-                matrix[i][j] = input.nextDouble();
-            }
-        }
-        // firstly, we should check row and column numbers. If there is no equality, this means the matrix is not orthogonal.
-        if (rows != columns)
-        {
-            System.out.println("The matrix is not an orthogonal matrix!");
-            return;
-        }
+       int[] dimensions = getSquareMatrix();
+        int rows = dimensions[0];
+        int columns = dimensions[1];
+
+        System.out.printf("The size is %dx%d\n\n",rows,columns);
+        double [][]matrix=new double[rows][columns];
+        System.out.println("Please enter the values to the matrix:\n");
+
+        //Entering the values
+        matrix=fill_matrix(rows,columns,matrix);
 		
 		double [][]transposeMatrix = transposeHelper(matrix);
         /* -- TODO -- : We should compare the equality of the inverse matrix and transpose matrix */
