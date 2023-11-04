@@ -265,16 +265,16 @@ public class group_21 {
     public static void menu(){
         asciiArt();
         System.out.println("\nChoose an option: ");
-        System.out.println("1. Addition");
-        System.out.println("2. Subtraction");
-        System.out.println("3. Multiplication");
-        System.out.println("4. Division");
-        System.out.println("5. Scalar Multiplication");
+        System.out.println("1. Matrix addition");
+        System.out.println("2. Matrix subtraction");
+        System.out.println("3. Matrix multiplication");
+        System.out.println("4. Scalar division of the matrix");
+        System.out.println("5. Scalar multiplication of the matrix");
         System.out.println("6. Transpose of a matrix");
         System.out.println("7. Inverse of a matrix");
         System.out.println("8. Trace of a matrix");
         System.out.println("9. Adjoint of a matrix");
-        System.out.println("10. Orthogonal matrix");
+        System.out.println("10. Check the matrix for Orthogonality");
         System.out.println("11. Exit");
         System.out.print("Your choice: ");
         try(Scanner input = new Scanner(System.in)){
@@ -415,6 +415,7 @@ public class group_21 {
     }
 /*-----------------------------------------------------------ADDITION OF MATRIX-------------------------------------------------------------------*/
     public static void addition(){
+        System.out.println("*****Matrix Addition*****\n");
         Scanner input = new Scanner(System.in);
         int rows;
         int columns;
@@ -468,6 +469,7 @@ public class group_21 {
     
 /*------------------------------------------------------------SUBSTRACTION OF MATRIX-----------------------------------------------------------*/
     public static void subtraction(){
+        System.out.println("*****Matrix Substraction*****\n");
         Scanner input = new Scanner(System.in);
         int rows;
         int columns;
@@ -524,6 +526,7 @@ public class group_21 {
     
 /*-----------------------------------------------------------MULTIPLICATION OF MATRIX----------------------------------------------------------------*/
     public static void multiplication(){
+        System.out.println("*****Matrix Multiplication*****\n");
         Scanner input = new Scanner(System.in);
         int rows;
         int columns;
@@ -580,6 +583,7 @@ public class group_21 {
         
 /*------------------------------------------------------DIVISION OF MATRIX------------------------------------------------------------------*/
     public static void division(){
+        System.out.println("*****Scalar Division of the Matrix*****\n");
         Scanner input = new Scanner(System.in);
         int rows;
         int columns;
@@ -636,6 +640,7 @@ public class group_21 {
     }
 /*------------------------------------------------------SCALAR MULTIPLICATION OF MATRIX-----------------------------------------------------*/
     public static void scalarMultiplication(){
+        System.out.println("*****Scalar Multiplication of the Matrix*****\n");
         Scanner input = new Scanner(System.in);
         int rows;
         int columns;
@@ -681,6 +686,7 @@ public class group_21 {
     }
 /*----------------------------------------------------------------TRANSPOSE OF MATRIX---------------------------------------------------------*/
     public static void transpose(){
+        System.out.println("*****Transpose of the Matrix*****\n");
 	    Scanner input = new Scanner(System.in);
         int rows;
         int columns;
@@ -737,6 +743,7 @@ public class group_21 {
     }
 /*--------------------------------------------------------INVERSE OF A MATRIX----------------------------------------------------------------------------*/
     public static double[][] inverse(){
+        System.out.println("*****The Inverse of the Matrix*****\n");
 	//In order to take inverse a matrix, it has to be square!
         //Created a matrix to get row and column as value in array. Then set.
         int[] dimensions = getSquareMatrix();
@@ -939,6 +946,7 @@ public class group_21 {
     	
 /*--------------------------------------------------------TRACE OF A MATRIX----------------------------------------------------------------------------*/
     public static void trace(){
+        System.out.println("*****Trace of the Matrix*****\n");
 	//The trace of a square matrix is the sum of its diagonal entries.
         //Created a matrix to get row and column as value in array. Then set.
         int[] dimensions = getSquareMatrix();
@@ -968,6 +976,7 @@ public class group_21 {
     }
 /*------------------------------------------------------ADJOINT OF THE MATRIX ---------------------------------------------------------------*/
 public static double[][] adjoint(){
+    System.out.println("*****Adjoint of the Matrix*****\n");
     int[] dimensions = getSquareMatrix();
     int rows = dimensions[0];
     int columns = dimensions[1];
@@ -1009,6 +1018,7 @@ public static double[][] adjoint(){
 /*-----------------------------------------------------------ORTHOGONAL MATRIX-------------------------------------------------------*/
     /* An orthogonal matrix is a specially defined square matrix such as, 2x2, 3x3, 4x4 etc. . */
     public static void orthogonal(){
+        System.out.println("*****Check the Matrix for Orthogonality*****\n");
         int[] dimensions = getSquareMatrix();
         int rows = dimensions[0];
         int columns = dimensions[1];
