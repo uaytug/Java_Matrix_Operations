@@ -1,6 +1,6 @@
 import java.util.Arrays;
 import java.util.Scanner;
-public class group_21 {
+public class group_21_yeni {
     public static void asciiArt(){
         System.out.println("\n" + //
                 "\n" + //
@@ -1019,9 +1019,11 @@ public static double[][] adjoint(){
     /* An orthogonal matrix is a specially defined square matrix such as, 2x2, 3x3, 4x4 etc. . */
     public static void orthogonal(){
         System.out.println("*****Check the Matrix for Orthogonality*****\n");
-        int[] dimensions = getSquareMatrix();
-        int rows = dimensions[0];
-        int columns = dimensions[1];
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the number of rows of the matrices: ");
+        int rows = input.nextInt();
+        System.out.print("Enter the number of columns of the matrices: ");
+        int columns = input.nextInt();
 
         System.out.printf("The size is %dx%d\n\n",rows,columns);
         double [][]matrix=new double[rows][columns];
@@ -1029,7 +1031,14 @@ public static double[][] adjoint(){
 
         //Entering the values
         matrix=fill_matrix(rows,columns,matrix);
-		
+
+        // Checking the square matrix or not.
+        if (rows != columns)
+        {
+            System.out.println("The matrix is not an orthogonal matrix!");
+            return;
+        }
+
 		double [][]transposeMatrix = transposeHelper(matrix);
         /* -- TODO -- : We should compare the equality of the inverse matrix and transpose matrix */
         double determinant = calculateDeterminant(matrix);
